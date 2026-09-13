@@ -1,3 +1,10 @@
+![Vista de la tienda en escritorio](https://github.com/palomo1632-prog/tienda-artesanos/blob/main/tienda.png?raw=true)
+
+![Vista de la tienda en celular](https://github.com/palomo1632-prog/tienda-artesanos/blob/main/tiendacelular.png?raw=true)
+
+![Panel de administración en celular](https://github.com/palomo1632-prog/tienda-artesanos/blob/main/panelcelular.png?raw=true)
+
+
 # 🌿 Plantilla de tienda online para artesanos
 
 **Proyecto libre de uso.** Tienda mobile-first lista para adaptar a cualquier artesano:
