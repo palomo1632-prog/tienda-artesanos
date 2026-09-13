@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Quiero mi página web — registro para artesanos</title>
+<meta name="theme-color" content="#b98a5e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --kraft:#c89b6d; --kraft-claro:#e7cfa9; --tinta:#241509; --madera:#5b3d24;
+  --teja:#9e4f2a; --crema:#f6eedd; --verde:#5a6b3f;
+  --sombra:0 2px 0 rgba(36,21,9,.25),0 14px 30px -14px rgba(36,21,9,.45);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+[hidden]{display:none!important}
+body{
+  font-family:"Lora",Georgia,serif;color:var(--tinta);
+  background:var(--kraft) url("/recursos/img/kraft-texture.jpg");background-size:512px;
+  background-blend-mode:multiply;line-height:1.55;-webkit-font-smoothing:antialiased;
+}
+h1,h2{font-family:"Cormorant Garamond",Georgia,serif;line-height:1.1}
+img{max-width:100%;display:block}
+.caja{max-width:640px;margin:0 auto;padding:2rem 1.1rem 4rem}
+.cab{text-align:center;padding:2.2rem 1rem 1rem}
+.cab .sello{width:110px;height:110px;border-radius:50%;border:2px solid var(--tinta);margin:0 auto 1rem;background:var(--kraft-claro);display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-weight:700;font-size:1.15rem}
+.cab p.sub{font-style:italic;opacity:.8;margin-top:.3rem}
+.aviso{background:var(--kraft-claro);border:2px dashed var(--tinta);border-radius:12px;padding:1rem 1.2rem;margin:1.2rem 0;font-size:.95rem}
+.form{background:var(--crema);border:2px solid var(--tinta);border-radius:14px;box-shadow:var(--sombra);padding:1.4rem 1.2rem;display:grid;gap:1rem;margin-top:1.2rem}
+.campo label{display:block;font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.3rem}
+.campo input,.campo textarea{width:100%;border:1.8px solid var(--tinta);border-radius:10px;padding:.75rem .9rem;background:#fffdf7;font:inherit}
+.campo input:focus,.campo textarea:focus{outline:2px solid var(--teja);outline-offset:1px}
+.campo small{opacity:.7}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media (max-width:520px){.duo{grid-template-columns:1fr}}
+.checks{display:flex;flex-wrap:wrap;gap:.5rem}
+.checks label{display:flex;align-items:center;gap:.4rem;border:1.6px dashed var(--tinta);border-radius:99px;padding:.45rem .9rem;font-size:.88rem;text-transform:none;letter-spacing:0;font-weight:500;cursor:pointer}
+.checks input{accent-color:var(--teja);width:17px;height:17px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;width:100%;
+  background:var(--tinta);color:var(--kraft-claro);border-radius:99px;padding:1.05rem;
+  font-weight:700;font-size:1.05rem;box-shadow:var(--sombra);border:none;cursor:pointer;font-family:inherit
+}
+.btn:active{transform:scale(.98)}
+.btn[disabled]{opacity:.55}
+.error{color:var(--teja);font-weight:600;font-size:.9rem}
+.feliz{text-align:center;padding:1.5rem 0}
+.feliz .marca{font-size:3rem}
+footer{text-align:center;font-size:.78rem;opacity:.65;padding:0 1rem 2rem}
+</style>
+</head>
+<body>
+
+<header class="cab">
+  <div class="sello">Web<br>gratis</div>
+  <h1>¿Hacés artesanías y querés tu propia página?</h1>
+  <p class="sub">Contanos de vos y de tu trabajo — si elegimos tu proyecto, la página sale sin cargo.</p>
+</header>
+
+<main class="caja">
+  <div class="aviso">
+    🌿 <strong>¿Qué pedimos?</strong> Que hagas tus productos a mano. La página incluye catálogo con
+    fotos, precios, carrito y pedidos por WhatsApp. Solo te vamos a contactar por WhatsApp si tu
+    proyecto resulta elegido.
+  </div>
+
+  <form class="form" id="form">
+    <div class="duo">
+      <div class="campo">
+        <label for="nombre">Tu nombre *</label>
+        <input id="nombre" required placeholder="Nombre y apellido">
+      </div>
+      <div class="campo">
+        <label for="marca">Nombre de tu marca o emprendimiento *</label>
+        <input id="marca" required placeholder="Ej: Sahumerios Casiopea">
+      </div>
+    </div>
+    <div class="duo">
+      <div class="campo">
+        <label for="whatsapp">WhatsApp de contacto *</label>
+        <input id="whatsapp" required type="tel" inputmode="tel" placeholder="11 2345 6789">
+      </div>
+      <div class="campo">
+        <label for="instagram">Instagram (si tenés)</label>
+        <input id="instagram" placeholder="@tumarca">
+      </div>
+    </div>
+    <div class="campo">
+      <label for="ciudad">¿De dónde sos? (ciudad / provincia)</label>
+      <input id="ciudad" placeholder="Ej: Nogoyá, Entre Ríos">
+    </div>
+    <div class="campo">
+      <label>¿Qué hacés? (marcá lo tuyo)</label>
+      <div class="checks" id="checks">
+        <label><input type="checkbox" value="Sahumerios / incienso"> Sahumerios / incienso</label>
+        <label><input type="checkbox" value="Velas"> Velas</label>
+        <label><input type="checkbox" value="Jabones / cosmética natural"> Jabones / cosmética</label>
+        <label><input type="checkbox" value="Madera tallada"> Madera tallada</label>
+        <label><input type="checkbox" value="Cerámica / alfarería"> Cerámica</label>
+        <label><input type="checkbox" value="Tejidos"> Tejidos</label>
+        <label><input type="checkbox" value="Joyería"> Joyería</label>
+        <label><input type="checkbox" value="Otro"> Otro</label>
+      </div>
+    </div>
+    <div class="campo">
+      <label for="historia">Contanos tu historia (¿cómo empezaste, qué te hace distinto?)</label>
+      <textarea id="historia" rows="4" placeholder="Ej: empecé haciendo velas para regalos en 2020, hoy vendo en ferias…"></textarea>
+    </div>
+    <div class="campo">
+      <label for="fotos">Fotos de tus productos (hasta 8 — las más lindas que tengas)</label>
+      <input id="fotos" type="file" accept="image/*" multiple>
+      <small>Si podés, que se vean bien iluminadas y de cerca. Son la cara de tu futura página.</small>
+    </div>
+    <div class="campo">
+      <label for="algoMas">¿Algo más que quieras contarnos?</label>
+      <textarea id="algoMas" rows="2" placeholder="Ej: tengo logo, vendo por mayor, hago envíos…"></textarea>
+    </div>
+    <p class="error" id="error" hidden></p>
+    <button class="btn" type="submit" id="btnEnviar">Enviar mi solicitud 🌿</button>
+  </form>
+
+  <div class="feliz" id="feliz" hidden>
+    <p class="marca">🌿🎉</p>
+    <h2>¡Gracias, <span id="felizMarca"></span>!</h2>
+    <p>Tu solicitud quedó registrada. Si tu proyecto es elegido nos ponemos en contacto por WhatsApp para crear tu página.<br><br>¡Seguí mostrando tu trabajo!</p>
+  </div>
+</main>
+
+<footer>Página de captación del proyecto "Una web para cada artesano" · tu información no se comparte con nadie más</footer>
+
+<script>
+const $ = (s) => document.querySelector(s);
+$("#form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const btn = $("#btnEnviar");
+  const err = $("#error");
+  err.hidden = true;
+  const fd = new FormData();
+  const val = (id) => $(id).value.trim();
+  fd.append("nombre", val("#nombre"));
+  fd.append("marca", val("#marca"));
+  fd.append("whatsapp", val("#whatsapp"));
+  fd.append("instagram", val("#instagram").replace(/^@/, ""));
+  fd.append("ciudad", val("#ciudad"));
+  fd.append("productos", [...$$("#checks input:checked")].map(c => c.value).join(", "));
+  fd.append("historia", val("#historia"));
+  fd.append("algoMas", val("#algoMas"));
+  for (const f of $("#fotos").files) fd.append("fotos", f);
+
+  btn.disabled = true; btn.textContent = "Enviando…";
+  try {
+    const r = await fetch("/api/solicitud", { method: "POST", body: fd });
+    if (!r.ok) throw new Error((await r.json()).error || "No se pudo enviar");
+    $("#form").hidden = true;
+    $(".aviso").hidden = true;
+    $("#felizMarca").textContent = val("#marca");
+    $("#feliz").hidden = false;
+    window.scrollTo(0, 0);
+  } catch (ex) {
+    err.textContent = ex.message + " — revisá los datos e intentá de nuevo.";
+    err.hidden = false;
+    btn.disabled = false; btn.textContent = "Enviar mi solicitud 🌿";
+  }
+});
+const $$ = (s, c=document) => [...c.querySelectorAll(s)];
+</script>
+</body>
+</html>

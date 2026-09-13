@@ -1,0 +1,32 @@
+/* ============ TEMA NOCHE — místico oscuro elegante ============ */
+:root{
+  --kraft:      #221509;   /* fondo marrón noche                */
+  --kraft-claro:#33210f;   /* tarjetas                          */
+  --kraft-suave:#432c17;
+  --tinta:      #f2e4cb;   /* texto crema sobre oscuro          */
+  --tinta-2:    #cbb593;
+  --madera:     #120b05;   /* banda/cabeceras más oscuras       */
+  --teja:       #e09a5f;   /* acento ámbar cálido               */
+  --crema:      #2c1c0d;   /* campos/inputs oscuros             */
+  --verde:      #9db07a;
+  --whatsapp:   #1fa855;
+  --sombra: 0 2px 0 rgba(0,0,0,.4), 0 14px 30px -14px rgba(0,0,0,.7);
+  --radio: 14px;
+  --velo-abajo:  rgba(34,21,9,.97);
+  --velo-medio:  rgba(34,21,9,.6);
+  --velo-izq:    rgba(34,21,9,.92);
+  --velo-medio2: rgba(34,21,9,.4);
+}
+body{
+  background:var(--kraft) url("/assets/img/kraft-texture.jpg");
+  background-size:512px;
+  background-blend-mode:overlay;
+  background-attachment:fixed;
+}
+.hoja, .ficha{
+  background:var(--kraft-claro) url("/assets/img/kraft-texture.jpg");
+  background-size:512px; background-blend-mode:overlay;
+}
+.campo input,.campo textarea,.campo select{ color:var(--tinta); }
+.ficha__cerrar{ background:var(--kraft-suave); }
+.etiqueta{ background:var(--kraft-claro); }

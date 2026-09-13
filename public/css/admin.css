@@ -1,0 +1,116 @@
+/* ===== Panel de administración — Casiopea ===== */
+.admin-body{ min-height:100svh; }
+
+/* login */
+.login{ min-height:100svh; display:grid; place-items:center; padding:1.5rem; }
+.login__caja{
+  background:var(--crema); border:2px solid var(--tinta); border-radius:var(--radio);
+  box-shadow:var(--sombra); padding:2rem 1.6rem; width:min(400px,100%); text-align:center;
+}
+.login__caja img{ margin:0 auto .8rem; border-radius:50%; border:2px solid var(--tinta); }
+.login__caja h1{ font-size:1.9rem; }
+.login__sub{ font-style:italic; opacity:.7; margin:.2rem 0 1.2rem; }
+.login__caja form{ display:grid; gap:.9rem; text-align:left; }
+.login__error{ color:var(--teja); font-weight:600; font-size:.9rem; }
+
+/* cabecera panel */
+.panel-cab{
+  position:sticky; top:0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between; gap:.6rem;
+  padding:.6rem clamp(.9rem,4vw,2rem);
+  background:var(--madera); color:var(--kraft-claro);
+  border-bottom:2px solid var(--tinta);
+}
+.panel-cab__marca{ display:flex; align-items:center; gap:.6rem; font-family:"Cormorant Garamond",serif; font-weight:700; font-size:1.2rem; }
+.panel-cab__marca img{ border-radius:50%; border:1.5px solid var(--kraft-claro); }
+.panel-cab__acciones{ display:flex; gap:.5rem; }
+.btn-mini{
+  border:1.6px solid currentColor; border-radius:99px;
+  padding:.42rem .9rem; font-size:.85rem; font-weight:600; text-decoration:none;
+  background:transparent; color:inherit;
+}
+#tab-productos .btn-mini, .lista-admin .btn-mini, .form-admin .btn-mini{ color:var(--tinta); }
+
+/* tabs */
+.panel-tabs{
+  display:flex; gap:.4rem; padding:.8rem clamp(.9rem,4vw,2rem) 0;
+  overflow-x:auto; scrollbar-width:none;
+}
+.panel-tabs::-webkit-scrollbar{ display:none; }
+.panel-tab{
+  flex:0 0 auto; padding:.6rem 1.2rem; border-radius:12px 12px 0 0;
+  border:2px solid var(--tinta); border-bottom:none;
+  background:var(--kraft-suave); font-weight:600;
+}
+.panel-tab[aria-selected="true"]{ background:var(--crema); transform:translateY(2px); }
+
+.panel-seccion{
+  margin:0 clamp(.9rem,4vw,2rem) 3rem;
+  background:var(--crema); border:2px solid var(--tinta); border-top:none;
+  border-radius:0 var(--radio) var(--radio) var(--radio);
+  padding:1.2rem clamp(.9rem,3vw,1.6rem) 1.8rem;
+}
+.panel-seccion__cab{
+  display:flex; align-items:center; justify-content:space-between; gap:.8rem;
+  flex-wrap:wrap; margin-bottom:1rem;
+}
+.panel-seccion__cab h2{ font-size:1.6rem; }
+.panel-contador{ font-size:1rem; opacity:.6; font-family:"Lora",serif; }
+
+/* lista de productos */
+.lista-admin{ display:grid; gap:.7rem; }
+.fila-producto{
+  display:flex; align-items:center; gap:.9rem;
+  border:1.6px solid var(--tinta); border-radius:12px;
+  padding:.55rem .7rem; background:var(--kraft-claro);
+}
+.fila-producto img{ width:56px; height:56px; object-fit:cover; border-radius:9px; border:1.4px solid var(--tinta); }
+.fila-producto__datos{ flex:1; min-width:0; }
+.fila-producto__nombre{ font-family:"Cormorant Garamond",serif; font-weight:700; font-size:1.15rem; line-height:1.1; }
+.fila-producto__meta{ font-size:.78rem; opacity:.75; display:flex; gap:.5rem; flex-wrap:wrap; }
+.fila-producto__acciones{ display:flex; gap:.4rem; }
+.btn-accion{
+  border:1.6px solid var(--tinta); border-radius:8px;
+  padding:.4rem .7rem; font-size:.8rem; font-weight:600; background:var(--crema);
+}
+.btn-accion--borrar{ border-color:var(--teja); color:var(--teja); }
+.fila-producto--sin{ opacity:.55; }
+
+/* formularios */
+.form-admin{ display:grid; gap:.9rem; max-width:640px; }
+.form-admin--fila{
+  grid-template-columns:1fr auto auto auto; align-items:end;
+  padding-bottom:1.2rem; border-bottom:2px dashed rgba(36,21,9,.4); margin-bottom:1.2rem;
+}
+@media (max-width:700px){ .form-admin--fila{ grid-template-columns:1fr 1fr; } }
+.precios-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:.6rem;
+}
+.precios-grid small{ display:block; font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; opacity:.7; }
+.precios-grid input{ width:100%; border:1.6px solid var(--tinta); border-radius:9px; padding:.6rem .7rem; background:var(--crema); }
+.eleccion-checks{ display:flex; flex-direction:column; gap:.35rem; font-size:.92rem; }
+.eleccion-checks input{ accent-color:var(--teja); width:18px; height:18px; vertical-align:-3px; }
+.form-foto-vista{ width:120px; height:120px; object-fit:cover; border:2px solid var(--tinta); border-radius:10px; margin-top:.4rem; }
+.form-error{ color:var(--teja); font-weight:600; font-size:.9rem; }
+
+/* filas de ferias en el form */
+.feria-row{ display:grid; grid-template-columns:110px 1fr 1.4fr 40px; gap:.5rem; margin-bottom:.5rem; }
+@media (max-width:640px){ .feria-row{ grid-template-columns:1fr 1fr; } }
+.feria-row input{ border:1.6px solid var(--tinta); border-radius:9px; padding:.55rem .7rem; background:var(--crema); }
+.feria-row .btn-accion{ padding:.4rem; align-self:center; }
+
+/* fila cupones */
+.fila-cupon-admin{
+  display:flex; align-items:center; gap:.8rem; flex-wrap:wrap;
+  border:1.6px dashed var(--tinta); border-radius:12px; padding:.6rem .9rem;
+  background:var(--kraft-claro);
+}
+.fila-cupon-admin strong{ letter-spacing:.08em; }
+.fila-cupon-admin .cupon-off{ margin-left:auto; font-size:.8rem; }
+
+@media (max-width:480px){
+  .fila-producto{ flex-wrap:wrap; }
+  .fila-producto__datos{ flex:1 1 calc(100% - 72px); }
+  .fila-producto__acciones{ width:100%; justify-content:flex-end; }
+  .fila-producto__meta span{ white-space:nowrap; }
+}

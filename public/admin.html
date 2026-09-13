@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Panel — Sahumerios Casiopea</title>
+<meta name="theme-color" content="#b98a5e">
+<link rel="icon" type="image/webp" href="/assets/img/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/admin.css">
+</head>
+<body class="admin-body">
+
+<!-- ===== Login ===== -->
+<section class="login" id="vistaLogin" hidden>
+  <div class="login__caja">
+    <img src="/assets/img/logo.webp" alt="" width="110" height="110">
+    <h1>Panel de Casiopea</h1>
+    <p class="login__sub">Solo para los artesanos 🔐</p>
+    <form id="formLogin">
+      <div class="campo">
+        <label for="loginClave">Contraseña</label>
+        <input type="password" id="loginClave" autocomplete="current-password" required>
+      </div>
+      <p class="login__error" id="loginError" hidden>Contraseña incorrecta</p>
+      <button class="btn-sello" type="submit">Entrar</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===== Panel ===== -->
+<main id="vistaPanel" hidden>
+  <header class="panel-cab">
+    <div class="panel-cab__marca">
+      <img src="/assets/img/logo.webp" alt="" width="40" height="40">
+      <span>Casiopea · Panel</span>
+    </div>
+    <div class="panel-cab__acciones">
+      <a href="/" class="btn-mini">Ver tienda ↗</a>
+      <button class="btn-mini" id="btnSalir">Salir</button>
+    </div>
+  </header>
+
+  <nav class="panel-tabs" role="tablist">
+    <button class="panel-tab" role="tab" aria-selected="true" data-tab="productos">Productos</button>
+    <button class="panel-tab" role="tab" aria-selected="false" data-tab="contenido">Contenido</button>
+    <button class="panel-tab" role="tab" aria-selected="false" data-tab="cupones">Cupones</button>
+  </nav>
+
+  <!-- Productos -->
+  <section class="panel-seccion" id="tab-productos">
+    <div class="panel-seccion__cab">
+      <h2>Productos <span id="contadorProductos" class="panel-contador"></span></h2>
+      <button class="btn-sello" id="btnNuevoProducto">+ Nuevo producto</button>
+    </div>
+    <div id="listaProductos" class="lista-admin"></div>
+  </section>
+
+  <!-- Contenido -->
+  <section class="panel-seccion" id="tab-contenido" hidden>
+    <div class="panel-seccion__cab"><h2>Contenido de la tienda</h2></div>
+    <form id="formContenido" class="form-admin">
+      <div class="campo">
+        <label for="ctHistoriaTitulo">Título de "Nuestra historia"</label>
+        <input id="ctHistoriaTitulo">
+      </div>
+      <div class="campo">
+        <label for="ctHistoriaTexto">Texto de "Nuestra historia"</label>
+        <textarea id="ctHistoriaTexto" rows="4"></textarea>
+      </div>
+      <div class="campo">
+        <label>Ferias y lugares (la ruta del motorhome)</label>
+        <div id="listaFeriasAdmin"></div>
+        <button type="button" class="btn-mini" id="btnAgregarFerias">+ Agregar parada</button>
+      </div>
+      <button class="btn-sello" type="submit">Guardar contenido</button>
+    </form>
+  </section>
+
+  <!-- Cupones -->
+  <section class="panel-seccion" id="tab-cupones" hidden>
+    <div class="panel-seccion__cab"><h2>Cupones de descuento</h2></div>
+    <form id="formCupon" class="form-admin form-admin--fila">
+      <div class="campo">
+        <label for="cpCodigo">Código</label>
+        <input id="cpCodigo" placeholder="BIENVENIDA10" style="text-transform:uppercase">
+      </div>
+      <div class="campo">
+        <label for="cpTipo">Tipo</label>
+        <select id="cpTipo">
+          <option value="porcentaje">% de descuento</option>
+          <option value="monto">Monto fijo</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="cpValor">Valor</label>
+        <input id="cpValor" type="number" min="1" inputmode="numeric">
+      </div>
+      <button class="btn-sello" type="submit">Crear cupón</button>
+    </form>
+    <div id="listaCupones" class="lista-admin"></div>
+  </section>
+</main>
+
+<!-- ===== Formulario de producto ===== -->
+<div class="velo" id="veloProducto" hidden></div>
+<section class="ficha ficha--admin" id="formProducto" role="dialog" aria-modal="true" hidden>
+  <button class="ficha__cerrar" id="btnCerrarProducto" aria-label="Cerrar">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <h3 class="pedido__titulo" id="tituloFormProducto">Nuevo producto</h3>
+  <form id="formProductoCampos" class="form-admin">
+    <input type="hidden" id="prId">
+    <div class="campo">
+      <label for="prFoto">Foto *</label>
+      <input type="file" id="prFoto" accept="image/*" capture="environment">
+      <img id="prFotoVista" class="form-foto-vista" alt="" hidden>
+    </div>
+    <div class="campo">
+      <label for="prTitulo">Título *</label>
+      <input id="prTitulo" required placeholder="Ej: Coco Mango">
+    </div>
+    <div class="campo">
+      <label for="prDesc">Descripción</label>
+      <textarea id="prDesc" rows="3" placeholder="Contale qué tiene de especial…"></textarea>
+    </div>
+    <div class="campo-duo">
+      <div class="campo">
+        <label for="prCategoria">Categoría</label>
+        <select id="prCategoria">
+          <option value="sahumerios">Sahumerios</option>
+          <option value="madera">Madera tallada</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="prAroma">Familia de aroma</label>
+        <select id="prAroma">
+          <option value="">—</option>
+          <option value="dulce">Dulce</option>
+          <option value="amaderado">Amaderado</option>
+          <option value="floral">Floral</option>
+          <option value="citrico">Cítrico</option>
+          <option value="especiado">Especiado</option>
+          <option value="resina">Resina / incienso</option>
+        </select>
+      </div>
+    </div>
+    <div class="campo">
+      <label>Tipo de venta</label>
+      <div class="eleccion" id="prTipo">
+        <button type="button" data-tipo="packs" aria-pressed="true">Por unidad y packs</button>
+        <button type="button" data-tipo="unitario" aria-pressed="false">Precio único</button>
+      </div>
+    </div>
+    <div class="campo" id="campoPreciosPack">
+      <label>Precios por formato (vacío = no se ofrece)</label>
+      <div class="precios-grid">
+        <div><small>Unidad</small><input id="prPu" type="number" min="0" inputmode="numeric" placeholder="precio"></div>
+        <div><small>Pack 5</small><input id="prP5" type="number" min="0" inputmode="numeric"></div>
+        <div><small>Pack 10</small><input id="prP10" type="number" min="0" inputmode="numeric"></div>
+        <div><small>Pack 20</small><input id="prP20" type="number" min="0" inputmode="numeric"></div>
+        <div><small>Pack 50</small><input id="prP50" type="number" min="0" inputmode="numeric"></div>
+        <div><small>Pack 100</small><input id="prP100" type="number" min="0" inputmode="numeric"></div>
+      </div>
+    </div>
+    <div class="campo-duo">
+      <div class="campo">
+        <label for="prStock">Stock</label>
+        <input id="prStock" type="number" min="0" inputmode="numeric" value="10">
+      </div>
+      <div class="campo">
+        <label>Etiquetas</label>
+        <div class="eleccion-checks">
+          <label><input type="checkbox" id="prDestacado"> ⭐ Top ventas</label>
+          <label><input type="checkbox" id="prNovedad"> 🌱 Novedad</label>
+        </div>
+      </div>
+    </div>
+    <p class="form-error" id="formProductoError" hidden></p>
+    <button class="btn-sello" type="submit" id="btnGuardarProducto">Guardar producto</button>
+  </form>
+</section>
+
+<script src="/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "sahumerios-casiopea",
+  "version": "1.0.0",
+  "description": "Plantilla de tienda online para artesanos (sahumerios/craft) — pedidos por WhatsApp. Proyecto libre de uso.",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "captacion": "node captacion/server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.4.1",
+    "express": "^4.21.2",
+    "multer": "^2.0.2"
+  }
+}

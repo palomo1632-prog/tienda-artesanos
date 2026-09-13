@@ -1,0 +1,25 @@
+/* ============ TEMA JARDÍN — botánico claro y aireado ============ */
+:root{
+  --kraft:      #eef0e4;   /* fondo salvio muy claro            */
+  --kraft-claro:#f8f7ef;   /* tarjetas                          */
+  --kraft-suave:#e2e6d2;
+  --tinta:      #2c3524;   /* verde bosque oscuro para texto    */
+  --tinta-2:    #55604a;
+  --madera:     #5a6b3f;   /* verde salvia (cabeceras)          */
+  --teja:       #b0682f;   /* acento terracota                  */
+  --crema:      #fffef8;   /* papel                             */
+  --verde:      #4c7a3f;
+  --whatsapp:   #1fa855;
+  --sombra: 0 2px 0 rgba(44,53,36,.18), 0 14px 30px -14px rgba(44,53,36,.35);
+  --radio: 14px;
+  --velo-abajo:  rgba(238,240,228,.97);
+  --velo-medio:  rgba(238,240,228,.6);
+  --velo-izq:    rgba(238,240,228,.92);
+  --velo-medio2: rgba(238,240,228,.4);
+}
+body{
+  background:var(--kraft);
+}
+.hoja, .ficha{ background:var(--crema); }
+.plancha, .cabecera{ background-color:var(--kraft-claro); }
+.cabecera{ background:color-mix(in srgb, var(--kraft-claro) 90%, transparent); }

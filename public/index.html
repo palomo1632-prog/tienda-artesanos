@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Sahumerios Casiopea — Sahumerios artesanales y madera tallada</title>
+<meta name="description" content="Sahumerios artesanales por unidad o en packs, y tallados en madera hechos a mano. Recorremos las ferias de Argentina en nuestro motorhome. Pedidos por WhatsApp.">
+<meta name="theme-color" content="#b98a5e">
+<link rel="icon" type="image/webp" href="/assets/img/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/temas/tema-kraft.css" id="linkTema">
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<!-- ===== Barra de anuncio tipo estampilla ===== -->
+<div class="banda" aria-hidden="true">
+  <div class="banda__pista">
+    <span>Sahumerios artesanales&nbsp;✦&nbsp;Tallados en madera&nbsp;✦&nbsp;Hechos a mano, uno por uno&nbsp;✦&nbsp;Recorremos las ferias del país en nuestro motorhome&nbsp;✦&nbsp;</span>
+    <span>Sahumerios artesanales&nbsp;✦&nbsp;Tallados en madera&nbsp;✦&nbsp;Hechos a mano, uno por uno&nbsp;✦&nbsp;Recorremos las ferias del país en nuestro motorhome&nbsp;✦&nbsp;</span>
+  </div>
+</div>
+
+<!-- ===== Encabezado ===== -->
+<header class="cabecera" id="cabecera">
+  <a class="cabecera__marca" href="#inicio">
+    <img src="/assets/img/logo.webp" alt="Sahumerios Casiopea" class="cabecera__logo" width="52" height="52">
+    <span class="cabecera__nombre">Casiopea</span>
+  </a>
+  <nav class="cabecera__nav" aria-label="Principal">
+    <a href="#catalogo">Catálogo</a>
+    <a href="#historia">Nuestra historia</a>
+    <a href="#ferias">Dónde vernos</a>
+  </nav>
+  <button class="btn-carrito" id="btnCarrito" aria-label="Abrir carrito">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16l-1.5 12.5a1.5 1.5 0 0 1-1.5 1.4H7a1.5 1.5 0 0 1-1.5-1.4L4 7Z"/><path d="M8.5 10V6a3.5 3.5 0 0 1 7 0v4"/></svg>
+    <span class="btn-carrito__contador" id="carritoContador" hidden>0</span>
+  </button>
+</header>
+
+<!-- ===== Héroe ===== -->
+<section class="heroe" id="inicio">
+  <picture class="heroe__imagen">
+    <source srcset="/assets/img/hero.webp" type="image/webp">
+    <img src="/assets/img/hero.png" alt="Portasahumerios de madera tallada con sahumerios artesanales" width="1672" height="941" fetchpriority="high">
+  </picture>
+  <div class="heroe__textos">
+    <p class="heroe__eyebrow">Sahumerios Artesanales · Madera Tallada</p>
+    <h1 class="heroe__titulo">
+      <span class="heroe__palabra">sa·hu·me·rio</span>
+      <span class="heroe__fonetica">/sa.u.ˈme.ɾjo/ — <em>sustantivo masculino</em></span>
+    </h1>
+    <p class="heroe__definicion">1.&nbsp; Aroma que sube, madera que habla.<br>2.&nbsp; Lo que prende <strong>Valeria y Cristian</strong> en cada feria del país.</p>
+    <div class="heroe__acciones">
+      <a href="#catalogo" class="btn-sello" id="btnHeroPrincipal">Ver el catálogo
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14m0 0-6-6m6 6 6-6"/></svg>
+      </a>
+      <a href="#ferias" class="btn-linea" id="btnHeroSecundario">¿Dónde estamos hoy?</a>
+    </div>
+  </div>
+  <!-- sello giratorio -->
+  <div class="sello-giro" aria-hidden="true">
+    <svg viewBox="0 0 120 120">
+      <defs><path id="circulo" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+      <circle cx="60" cy="60" r="57" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <circle cx="60" cy="60" r="30" fill="none" stroke="currentColor" stroke-width="1"/>
+      <text font-size="10.5" letter-spacing="2.6"><textPath href="#circulo">HECHO A MANO · UNO POR UNO · TALLADO EN MADERA ·</textPath></text>
+      <path d="M60 48 l3.4 7 7.6.6-5.8 5 1.8 7.4L60 64l-7 4 1.8-7.4-5.8-5 7.6-.6Z" fill="currentColor"/>
+    </svg>
+  </div>
+  <div class="humo" aria-hidden="true"><svg viewBox="0 0 60 160" width="46" height="130"><path class="humo__trazo" d="M30 158 C 30 120, 12 112, 26 88 C 40 64, 18 52, 30 28 C 38 12, 32 6, 34 2" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></div>
+</section>
+
+<!-- ===== Categorías ===== -->
+<section class="categorias" aria-label="Nuestros productos">
+  <a class="plancha" href="#catalogo" data-filtro="sahumerios" id="planchaSahumerios">
+    <img id="planchaSahumeriosImg" src="/assets/img/ilus-sahumerios.webp" alt="" width="900" height="900" loading="lazy">
+    <div class="plancha__pie">
+      <h2 id="planchaSahumeriosTitulo">Sahumerios</h2>
+      <p id="planchaSahumeriosDesc">Más de 25 fragancias, por unidad o en packs de 5 a 100</p>
+      <span class="plancha__flecha">Explorar →</span>
+    </div>
+  </a>
+  <a class="plancha" href="#catalogo" data-filtro="madera" id="planchaMadera">
+    <img id="planchaMaderaImg" src="/assets/img/ilus-madera.webp" alt="" width="900" height="900" loading="lazy">
+    <div class="plancha__pie">
+      <h2 id="planchaMaderaTitulo">Madera tallada</h2>
+      <p id="planchaMaderaDesc">Carteles, placas, portasahumerios y piezas únicas a cincel</p>
+      <span class="plancha__flecha">Explorar →</span>
+    </div>
+  </a>
+</section>
+
+<!-- ===== Catálogo ===== -->
+<section class="catalogo" id="catalogo">
+  <header class="catalogo__cabecera">
+    <p class="catalogo__eyebrow">El entrepaño</p>
+    <h2 class="catalogo__titulo">Elegí tu aroma, elegí tu pieza</h2>
+    <div class="buscador">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
+      <input type="search" id="buscador" placeholder="Buscar fragancia o producto…" autocomplete="off" enterkeyhint="search">
+    </div>
+    <div class="chips" id="chipsFamilia" role="tablist" aria-label="Categorías y familias de aroma"></div>
+  </header>
+  <p class="catalogo__vacio" id="catalogoVacio" hidden>No encontramos nada con esa búsqueda… probá con otro aroma 🌿</p>
+  <div class="grilla" id="grillaProductos"></div>
+</section>
+
+<!-- ===== Ficha de producto (bottom sheet) ===== -->
+<div class="velo" id="veloFicha" hidden></div>
+<section class="ficha" id="ficha" role="dialog" aria-modal="true" aria-label="Producto" hidden></section>
+
+<!-- ===== Historia ===== -->
+<section class="historia" id="historia">
+  <div class="historia__texto">
+    <p class="catalogo__eyebrow">Nuestra historia</p>
+    <h2 class="catalogo__titulo" id="historiaTitulo">Un taller que rueda</h2>
+    <p id="historiaTexto">Somos Valeria y Cristian. Hacemos cada sahumerio a mano y tallamos cada cartel a cincel, y desde hace un tiempo recorremos las ferias de Argentina con nuestro motorhome como taller y casa. Lo que comprás acá salió de nuestras manos, no de una fábrica.</p>
+  </div>
+  <figure class="historia__figura">
+    <img src="/assets/img/ilus-motorhome.webp" alt="Ilustración del motorhome Casiopea en la ruta" width="1400" height="583" loading="lazy">
+  </figure>
+</section>
+
+<!-- ===== Ferias ===== -->
+<section class="ferias" id="ferias">
+  <p class="catalogo__eyebrow">Dónde encontrarnos</p>
+  <h2 class="catalogo__titulo">La ruta de Casiopea</h2>
+  <div class="ruta" id="listaFerias">
+    <div class="ruta__parada">
+      <span class="ruta__punto"></span>
+      <div><strong>Andamos por las ferias del país</strong><p>Escribinos por WhatsApp y te contamos dónde está el motorhome esta semana.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Pie ===== -->
+<footer class="pie">
+  <img id="pieLogo" src="/assets/img/logo.webp" alt="" width="88" height="88" loading="lazy">
+  <p class="pie__nombre">Sahumerios Artesanales Casiopea</p>
+  <p class="pie__frase">Hecho a mano, uno por uno, en algún rincón de Argentina 🇦🇷</p>
+  <div class="pie__botones">
+    <a class="pie__wa" href="https://wa.me/5491166728297?text=%C2%A1Hola%20Casiopea!%20%F0%9F%8C%BF" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.4 2.6 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .8-.2 1.4Z"/></svg>
+      Escribinos
+    </a>
+    <a class="pie__ig" id="pieInstagram" href="https://www.instagram.com/sahumerioscasiopea/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+      <span>@sahumerioscasiopea</span>
+    </a>
+  </div>
+  <p class="pie__admin"><a href="/admin">Panel de administración</a></p>
+</footer>
+
+<!-- ===== Carrito (bottom sheet) ===== -->
+<div class="velo" id="veloCarrito" hidden></div>
+<section class="hoja" id="carrito" role="dialog" aria-modal="true" aria-label="Tu pedido" hidden>
+  <div class="hoja__agarre" aria-hidden="true"></div>
+  <div id="carritoContenido"></div>
+</section>
+
+<!-- ===== Barra flotante de compra ===== -->
+<div class="barra-compra" id="barraCompra" hidden>
+  <button id="barraBtn" class="barra-compra__btn">
+    <span id="barraTexto">Ver tu pedido</span>
+    <span class="barra-compra__total" id="barraTotal"></span>
+  </button>
+</div>
+
+<!-- ===== Burbuja de WhatsApp siempre visible ===== -->
+<a class="burbuja-wa" id="burbujaWa"
+   href="https://wa.me/5491166728297?text=%C2%A1Hola%20Casiopea!%20%F0%9F%8C%BF%20Les%20escribo%20desde%20su%20p%C3%A1gina%20web.%20Quer%C3%ADa%20consultar%20por%20los%20sahumerios."
+   target="_blank" rel="noopener" aria-label="Chateá por WhatsApp">
+  <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.5.5c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.4 2.6 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.4 0 .1 0 .8-.2 1.4Z"/></svg>
+  <span class="burbuja-wa__tooltip">¿Consultas? ¡Escribinos!</span>
+</a>
+
+<script src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+/* ============ TEMA KRAFT — sello grabado sobre cartón (original) ============ */
+:root{
+  --kraft:      #c89b6d;   /* cartón kraft del logo            */
+  --kraft-claro:#e7cfa9;   /* papel más claro para tarjetas    */
+  --kraft-suave:#d9b689;
+  --tinta:      #241509;   /* tinta negra sepia                */
+  --tinta-2:    #4a3223;
+  --madera:     #5b3d24;   /* madera oscura                    */
+  --teja:       #9e4f2a;   /* acento teja (sellos, precios)    */
+  --crema:      #f6eedd;   /* papel casi blanco                */
+  --verde:      #5a6b3f;   /* verde salvia apagado             */
+  --whatsapp:   #1fa855;
+  --sombra: 0 2px 0 rgba(36,21,9,.25), 0 14px 30px -14px rgba(36,21,9,.45);
+  --radio: 14px;
+  --velo-abajo:  rgba(200,155,109,.96);
+  --velo-medio:  rgba(200,155,109,.55);
+  --velo-izq:    rgba(200,155,109,.9);
+  --velo-medio2: rgba(200,155,109,.35);
+}
+
+body{
+  background:var(--kraft) url("/assets/img/kraft-texture.jpg");
+  background-size: 512px;
+  background-blend-mode: multiply;
+  background-attachment: fixed;
+}
+.hoja, .ficha{
+  background:var(--crema) url("/assets/img/kraft-texture.jpg");
+  background-size:512px; background-blend-mode:multiply;
+}

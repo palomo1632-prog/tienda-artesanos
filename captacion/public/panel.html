@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Panel de captación</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--kraft:#c89b6d;--kraft-claro:#e7cfa9;--tinta:#241509;--teja:#9e4f2a;--crema:#f6eedd;--verde:#5a6b3f}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Lora",serif;color:var(--tinta);background:var(--kraft);min-height:100vh;padding:1.2rem}
+h1{font-family:"Cormorant Garamond",serif}
+.caja{max-width:760px;margin:0 auto}
+.tarjeta{background:var(--crema);border:2px solid var(--tinta);border-radius:12px;padding:1rem 1.1rem;margin-top:.8rem}
+.tarjeta h2{font-family:"Cormorant Garamond",serif;font-size:1.35rem}
+.meta{font-size:.85rem;opacity:.8;margin:.2rem 0}
+.tag{display:inline-block;background:var(--tinta);color:var(--kraft-claro);font-size:.7rem;padding:.15rem .5rem;border-radius:4px;letter-spacing:.06em;text-transform:uppercase}
+.tag.nueva{background:var(--teja)}
+.tag.hecha{background:var(--verde)}
+.historia{font-size:.9rem;margin:.5rem 0;white-space:pre-wrap}
+.fotos{display:flex;flex-wrap:wrap;gap:.4rem;margin:.5rem 0}
+.fotos img{width:64px;height:64px;object-fit:cover;border-radius:6px;border:1.5px solid var(--tinta)}
+.acciones{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.5rem}
+button,a.btn{border:1.6px solid var(--tinta);border-radius:8px;padding:.4rem .8rem;font:inherit;font-size:.82rem;font-weight:600;background:var(--kraft-claro);color:var(--tinta);cursor:pointer;text-decoration:none}
+.borrar{border-color:var(--teja);color:var(--teja)}
+form.login{max-width:340px;margin:15vh auto 0;background:var(--crema);border:2px solid var(--tinta);border-radius:12px;padding:1.5rem;display:grid;gap:.8rem;text-align:center}
+input{border:1.6px solid var(--tinta);border-radius:8px;padding:.6rem .8rem;font:inherit;width:100%}
+select{border:1.6px solid var(--tinta);border-radius:8px;padding:.35rem;font:inherit}
+.vacio{text-align:center;font-style:italic;opacity:.7;margin-top:2rem}
+.estado-select{margin-left:auto}
+.cab-lista{display:flex;align-items:center;gap:.6rem}
+</style>
+</head>
+<body>
+<div class="caja">
+  <form class="login" id="login">
+    <h1>Panel de captación</h1>
+    <p style="font-size:.85rem;opacity:.7">Solicitudes de artesanos</p>
+    <input type="password" id="clave" placeholder="Clave" autocomplete="current-password">
+    <button class="btn" type="submit">Entrar</button>
+    <p id="error" style="color:var(--teja);font-weight:600;font-size:.85rem" hidden></p>
+  </form>
+  <main id="panel" hidden>
+    <div class="cab-lista">
+      <h1>Solicitudes</h1>
+      <button id="btnSalir" style="margin-left:auto">Salir</button>
+    </div>
+    <div id="lista"></div>
+    <p class="vacio" id="vacio" hidden>Todavía no hay solicitudes.</p>
+  </main>
+</div>
+<script>
+const $ = (s) => document.querySelector(s);
+const escapar = (t) => String(t ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+$("#login").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const r = await fetch("/api/panel/login", { method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({ clave: $("#clave").value }) });
+  if (r.ok) { $("#login").hidden = true; $("#panel").hidden = false; cargar(); }
+  else { $("#error").textContent = "Clave incorrecta"; $("#error").hidden = false; }
+});
+$("#btnSalir").addEventListener("click", async () => { await fetch("/api/panel/login", { method:"DELETE" }); location.reload(); });
+
+async function cargar() {
+  const lista = await (await fetch("/api/panel/solicitudes")).json();
+  $("#vacio").hidden = lista.length > 0;
+  $("#lista").innerHTML = lista.map(s => `
+    <div class="tarjeta">
+      <div class="cab-lista">
+        <h2>${escapar(s.marca)}</h2>
+        <span class="tag ${s.estado}">${s.estado}</span>
+        <select class="estado-select" data-id="${s.id}">
+          ${["nueva","contactada","hecha","descartada"].map(e => `<option ${e===s.estado?"selected":""}>${e}</option>`).join("")}
+        </select>
+      </div>
+      <p class="meta"><strong>${escapar(s.nombre)}</strong> · 📱 ${escapar(s.whatsapp)}${s.instagram ? " · 📷 @" + escapar(s.instagram) : ""}${s.ciudad ? " · 📍 " + escapar(s.ciudad) : ""} · <em>${new Date(s.creada + "Z").toLocaleString("es-AR")}</em></p>
+      ${s.productos ? `<p class="meta">🧺 ${escapar(s.productos)}</p>` : ""}
+      ${s.historia ? `<p class="historia">${escapar(s.historia)}</p>` : ""}
+      ${s.algoMas ? `<p class="meta">📝 ${escapar(s.algoMas)}</p>` : ""}
+      ${s.fotos.length ? `<div class="fotos">${s.fotos.map(f => `<a href="${f}" target="_blank"><img src="${f}" alt=""></a>`).join("")}</div>` : ""}
+      <div class="acciones">
+        <a class="btn" href="/api/panel/solicitudes/${s.id}/export">⬇ Exportar solicitud.json</a>
+        <button class="borrar" data-wa="${escapar(s.whatsapp)}" data-marca="${escapar(s.marca)}">💬 Contactar por WhatsApp</button>
+      </div>
+    </div>`).join("");
+
+  document.querySelectorAll(".estado-select").forEach(sel =>
+    sel.addEventListener("change", async () => {
+      await fetch(`/api/panel/solicitudes/${sel.dataset.id}/estado`, { method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({ estado: sel.value }) });
+      cargar();
+    }));
+  document.querySelectorAll("[data-wa]").forEach(b =>
+    b.addEventListener("click", () => {
+      const num = b.dataset.wa.replace(/\D/g, "");
+      const msg = encodeURIComponent(`¡Hola ${b.dataset.marca}! Les escribo por su solicitud de página web 🌿`);
+      window.open(`https://wa.me/549${num.replace(/^549?/, "")}?text=${msg}`, "_blank");
+    }));
+}
+</script>
+</body>
+</html>

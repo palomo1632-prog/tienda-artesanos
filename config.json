@@ -1,0 +1,90 @@
+{
+  "_comentario": "ÚNICO archivo a editar para adaptar esta plantilla a un artesano nuevo (más las imágenes de public/assets/). Guía campo por campo en CONFIG-GUIA.md. Los textos acá son los valores por defecto; los textos de 'historia' y 'ferias' pueden además editarse desde el panel /admin sin tocar este archivo.",
+
+  "marca": {
+    "nombre": "Sahumerios Casiopea",
+    "nombreCorto": "Casiopea",
+    "lema": "Hecho a mano, uno por uno, en algún rincón de Argentina 🇦🇷"
+  },
+
+  "contacto": {
+    "whatsapp": "5491166728297",
+    "instagram": "sahumerioscasiopea",
+    "instagramActivo": true,
+    "mensajeBurbuja": "¡Hola {marca}! 🌿 Les escribo desde su página web. Quería consultar por sus productos.",
+    "mensajeConsulta": "¡Hola {marca}! 🌿"
+  },
+
+  "tema": "kraft",
+
+  "colores": {},
+
+  "imagenes": {
+    "logo": "/assets/img/logo.webp",
+    "hero": "/assets/img/hero.webp",
+    "heroPosicion": "72% center",
+    "categoriaSahumerios": "/assets/img/ilus-sahumerios.webp",
+    "categoriaMadera": "/assets/img/ilus-madera.webp",
+    "historia": "/assets/img/ilus-motorhome.webp"
+  },
+
+  "secciones": {
+    "historia": true,
+    "ferias": true
+  },
+
+  "textos": {
+    "banda": [
+      "Sahumerios artesanales",
+      "Tallados en madera",
+      "Hechos a mano, uno por uno",
+      "Recorremos las ferias del país en nuestro motorhome"
+    ],
+    "hero": {
+      "eyebrow": "Sahumerios Artesanales · Madera Tallada",
+      "palabra": "sa·hu·me·rio",
+      "fonetica": "/sa.u.ˈme.ɾjo/ — sustantivo masculino",
+      "definiciones": [
+        "Aroma que sube, madera que habla.",
+        "Lo que prende Valeria y Cristian en cada feria del país."
+      ],
+      "botonPrincipal": "Ver el catálogo",
+      "botonSecundario": "¿Dónde estamos hoy?"
+    },
+    "catalogo": {
+      "eyebrow": "El entrepaño",
+      "titulo": "Elegí tu aroma, elegí tu pieza",
+      "placeholderBusqueda": "Buscar fragancia o producto…",
+      "mensajeVacio": "No encontramos nada con esa búsqueda… probá con otro aroma 🌿"
+    },
+    "categorias": [
+      { "id": "sahumerios", "titulo": "Sahumerios", "descripcion": "Más de 25 fragancias, por unidad o en packs de 5 a 100" },
+      { "id": "madera", "titulo": "Madera tallada", "descripcion": "Carteles, placas, portasahumerios y piezas únicas a cincel" }
+    ],
+    "historia": {
+      "eyebrow": "Nuestra historia",
+      "titulo": "Un taller que rueda",
+      "texto": "Somos Valeria y Cristian. Hacemos cada sahumerio a mano y tallamos cada cartel a cincel, y desde hace un tiempo recorremos las ferias de Argentina con nuestro motorhome como taller y casa. Lo que comprás acá salió de nuestras manos, no de una fábrica."
+    },
+    "ferias": {
+      "eyebrow": "Dónde encontrarnos",
+      "titulo": "La ruta de Casiopea",
+      "paradas": [
+        { "fecha": "Este finde", "lugar": "Consultanos por WhatsApp", "detalle": "El motorhome anda siempre; te contamos dónde estacionamos esta semana." }
+      ]
+    },
+    "checkout": {
+      "tituloCarrito": "Tu pedido",
+      "subtituloCarrito": "— nota de {marca} —",
+      "etiquetaRetiro": "🏠 Retiro en Feria/Casa",
+      "etiquetaEnvio": "📦 Envío a domicilio",
+      "pideNota": true,
+      "pideCupon": true
+    }
+  },
+
+  "tienda": {
+    "moneda": "ARS",
+    "packs": [5, 10, 20, 50, 100]
+  }
+}
