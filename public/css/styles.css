@@ -381,8 +381,9 @@ h1,h2,h3{ font-family:"Cormorant Garamond", Georgia, serif; font-weight:600; lin
 }
 
 /* ---------- Pie ---------- */
+/* Aire inferior extra: las barras flotantes (pedido y WhatsApp) cubren ~5rem del fondo */
 .pie{
-  text-align:center; padding:3rem 1.5rem calc(2.2rem + env(safe-area-inset-bottom));
+  text-align:center; padding:3rem 1.5rem calc(7rem + env(safe-area-inset-bottom));
   background:var(--madera); color:var(--kraft-claro);
   border-top:3px double var(--tinta);
 }
