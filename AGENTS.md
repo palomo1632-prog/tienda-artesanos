@@ -51,9 +51,6 @@ server/
                      "casiopea_sesion"): reiniciar el proceso desloguea (normal).
   db.js              Esquema products/coupons/site_content/settings + scrypt de contraseña +
                      contenido por defecto + siembra demo (solo si products está vacía)
-captacion/           Mini-app INDEPENDIENTE (opcional): formulario de postulación de artesanos
-  server.js            → SQLite + panel /panel con export solicitud.json. Puerto 8091.
-  public/              Formulario (index.html) y panel (panel.html)
 ```
 
 ## 3. Esquema de datos
@@ -106,7 +103,6 @@ Multer acepta imágenes por mimetype **o extensión** (curl manda octet-stream p
 ```bash
 npm install
 node server/index.js        # tienda: http://localhost:3000 · panel: /admin
-npm run captacion           # (opcional) formulario de postulación: http://localhost:8091
 ```
 
 La primera corrida siembra 19 productos demo + cupón BIENVENIDA10 y muestra la clave del panel

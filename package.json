@@ -4,8 +4,7 @@
   "description": "Plantilla de tienda online para artesanos (sahumerios/craft) — pedidos por WhatsApp. Proyecto libre de uso.",
   "main": "server/index.js",
   "scripts": {
-    "start": "node server/index.js",
-    "captacion": "node captacion/server.js"
+    "start": "node server/index.js"
   },
   "engines": {
     "node": ">=18"

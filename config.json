@@ -1,12 +1,10 @@
 {
   "_comentario": "ÚNICO archivo a editar para adaptar esta plantilla a un artesano nuevo (más las imágenes de public/assets/). Guía campo por campo en CONFIG-GUIA.md. Los textos acá son los valores por defecto; los textos de 'historia' y 'ferias' pueden además editarse desde el panel /admin sin tocar este archivo.",
-
   "marca": {
     "nombre": "Sahumerios Casiopea",
     "nombreCorto": "Casiopea",
     "lema": "Hecho a mano, uno por uno, en algún rincón de Argentina 🇦🇷"
   },
-
   "contacto": {
     "whatsapp": "5491166728297",
     "instagram": "sahumerioscasiopea",
@@ -14,11 +12,8 @@
     "mensajeBurbuja": "¡Hola {marca}! 🌿 Les escribo desde su página web. Quería consultar por sus productos.",
     "mensajeConsulta": "¡Hola {marca}! 🌿"
   },
-
   "tema": "kraft",
-
   "colores": {},
-
   "imagenes": {
     "logo": "/assets/img/logo.webp",
     "hero": "/assets/img/hero.webp",
@@ -27,12 +22,10 @@
     "categoriaMadera": "/assets/img/ilus-madera.webp",
     "historia": "/assets/img/ilus-motorhome.webp"
   },
-
   "secciones": {
     "historia": true,
     "ferias": true
   },
-
   "textos": {
     "banda": [
       "Sahumerios artesanales",
@@ -58,8 +51,16 @@
       "mensajeVacio": "No encontramos nada con esa búsqueda… probá con otro aroma 🌿"
     },
     "categorias": [
-      { "id": "sahumerios", "titulo": "Sahumerios", "descripcion": "Más de 25 fragancias, por unidad o en packs de 5 a 100" },
-      { "id": "madera", "titulo": "Madera tallada", "descripcion": "Carteles, placas, portasahumerios y piezas únicas a cincel" }
+      {
+        "id": "sahumerios",
+        "titulo": "Sahumerios",
+        "descripcion": "Más de 25 fragancias, por unidad o en packs de 5 a 100"
+      },
+      {
+        "id": "madera",
+        "titulo": "Madera tallada",
+        "descripcion": "Carteles, placas, portasahumerios y piezas únicas a cincel"
+      }
     ],
     "historia": {
       "eyebrow": "Nuestra historia",
@@ -70,7 +71,11 @@
       "eyebrow": "Dónde encontrarnos",
       "titulo": "La ruta de Casiopea",
       "paradas": [
-        { "fecha": "Este finde", "lugar": "Consultanos por WhatsApp", "detalle": "El motorhome anda siempre; te contamos dónde estacionamos esta semana." }
+        {
+          "fecha": "Este finde",
+          "lugar": "Consultanos por WhatsApp",
+          "detalle": "El motorhome anda siempre; te contamos dónde estacionamos esta semana."
+        }
       ]
     },
     "checkout": {
@@ -82,9 +87,23 @@
       "pideCupon": true
     }
   },
-
   "tienda": {
     "moneda": "ARS",
-    "packs": [5, 10, 20, 50, 100]
+    "packs": [
+      5,
+      10,
+      20,
+      50,
+      100
+    ]
+  },
+  "credito": {
+    "_comentario": "Crédito del pie. Útil si haces webs para otros: cada tienda que crees hace publicidad de tu servicio. activo=false oculta ambos.",
+    "texto": "Creado con ♥️ por Eugenio Bigoritto para Valeria y Cristian",
+    "captacion": {
+      "activo": true,
+      "url": "https://soyarte.com.ar",
+      "texto": "Si sos artesano y querés una página como esta, pedila acá — ¡es gratis para artesanos!"
+    }
   }
 }

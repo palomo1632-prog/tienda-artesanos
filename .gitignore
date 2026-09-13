@@ -4,14 +4,11 @@ PRODUCCION-LOCAL.md
 # Dependencias y artefactos
 node_modules/
 server.log
-captacion.log
 *.tar.gz
 
 # Estado de producción (BD, fotos subidas, claves generadas)
 server/data/
 server/uploads/
-captacion/data/
-captacion/uploads/
 
 # Capturas y trabajo temporal
 capturas/

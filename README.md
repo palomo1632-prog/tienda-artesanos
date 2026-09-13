@@ -40,22 +40,12 @@ Incluye **3 temas visuales** conmutables con una línea de config (`"tema"`):
 | [`AGENTS.md`](AGENTS.md) | Mapa técnico profundo: archivos, esquema de datos, API, gotchas de debugging, convenciones |
 | [`README.md`](README.md) | Este archivo: uso y estructura |
 
-## 📥 Formulario de captación (opcional)
-
-Mini-app independiente para recolectar postulaciones de artesanos (formulario web + base de
-datos + panel para revisarlas y exportarlas como JSON):
-
-```bash
-npm run captacion           # http://localhost:8091 · panel: /panel
-```
-
 ## 🗂️ Estructura
 
 ```
 config.json          ← todo lo variable del negocio (editá esto)
 public/              tienda + panel (HTML/CSS/JS vanilla) + temas en css/temas/
 server/              API Express + SQLite (index.js, db.js)
-captacion/           mini-app de postulación de artesanos (opcional)
 ```
 
 ## 📄 Licencia / uso

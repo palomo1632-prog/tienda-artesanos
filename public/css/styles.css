@@ -397,6 +397,11 @@ h1,h2,h3{ font-family:"Cormorant Garamond", Georgia, serif; font-weight:600; lin
   background:transparent; color:var(--kraft-claro); text-decoration:none; font-weight:600;
   padding:.9rem 1.4rem; border-radius:99px; border:1.6px solid var(--kraft-claro);
 }
+.pie__credito{ margin-top:1.8rem; font-size:.85rem; opacity:.9; }
+.pie__captacion{
+  display:inline-block; margin-top:.5rem; font-size:.85rem;
+  color:var(--kraft-claro); text-decoration:underline; text-underline-offset:3px;
+}
 .pie__admin{ margin-top:1.6rem; font-size:.78rem; opacity:.6; }
 
 /* ---------- Carrito: nota de pedido ---------- */

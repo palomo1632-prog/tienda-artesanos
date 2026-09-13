@@ -110,20 +110,11 @@ reverse proxy con HTTPS (Caddy) → listo. Cambiar la clave del panel en el prim
 
 ## FLUJO B — El artesano llenó el formulario de captación
 
-Este repo incluye **`captacion/`**: una mini-app independiente (formulario web + SQLite +
-panel) para recolectar postulaciones de artesanos. La hostea UNA vez el operador del programa
-(no va en cada tienda).
-
-1. Correrla: `npm run captacion` → `http://localhost:8091` (panel: `/panel`, clave impresa en
-   consola la primera vez o vía env `CLAVE_CAPTACION`).
-2. El artesano completa el formulario (marca, WhatsApp, Instagram, historia, productos, fotos).
-3. El operador entra al panel, revisa la solicitud, la marca como `contactada` y baja
-   **"Exportar solicitud.json"**.
-4. Arranca el FLUJO A dándole al agente ese `solicitud.json` + las fotos (el JSON trae las
-   URLs de descarga). El agente usa esos campos para completar la config y los productos.
-
-> Nota: la app de captación guarda datos en `captacion/data/` — no subir esa carpeta a GitHub
-> (ya está en .gitignore).
+La página de captación de artesanos es un **proyecto aparte** (no forma parte de esta
+plantilla): la opera quien regala las webs. Si te pasan un `solicitud.json` generado por ese
+formulario (marca, WhatsApp, Instagram, ciudad, productos, historia y URLs de fotos), seguí el
+FLUJO A usando esos datos directamente: completan `config.json` y los productos.
+Las fotos del solicitante se descargan de las URLs del JSON y se optimizan igual (paso 3).
 
 ---
 

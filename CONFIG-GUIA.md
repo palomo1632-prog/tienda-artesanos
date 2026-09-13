@@ -25,6 +25,8 @@ completo de la marca. Los campos vacíos o en `false` desactivan la función.
 | `imagenes` | Rutas de las imágenes (ver abajo). Reemplazar los archivos y/o cambiar rutas |
 | `imagenes.heroPosicion` | CSS `object-position` del héroe: qué parte de la foto se ve en móvil |
 | `secciones.historia` / `secciones.ferias` | `false` oculta esas secciones completas |
+| `credito.texto` | Línea de crédito del pie (ej: "Creado con ♥️ por … para …"). `activo:false` lo oculta |
+| `credito.captacion` | `{activo, url, texto}`: link del pie para que otros artesanos pidan su web. `activo:false` lo oculta |
 | `tienda.moneda` | Solo estético (hoy se formatea como peso argentino) |
 | `tienda.packs` | Tamaños de pack que se ofrecen, ej `[5,10,20,50,100]`. El formato "por unidad" siempre existe |
 

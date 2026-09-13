@@ -167,6 +167,19 @@ function aplicarConfig() {
     }
   }
 
+  const credito = q("#pieCredito");
+  if (credito && CFG.credito) {
+    credito.hidden = CFG.credito.activo === false || !CFG.credito.texto;
+    credito.textContent = CFG.credito.texto;
+  }
+  const cap = q("#pieCaptacion");
+  if (cap && CFG.credito) {
+    const c = CFG.credito.captacion || {};
+    const visible = CFG.credito.activo !== false && c.activo !== false && c.url && c.texto;
+    cap.hidden = !visible;
+    if (visible) { cap.href = c.url; cap.textContent = c.texto; }
+  }
+
   const sec = CFG.secciones || {};
   if (sec.historia === false) { const el = q("#historia"); if (el) el.hidden = true; }
   if (sec.ferias === false) { const el = q("#ferias"); if (el) el.hidden = true; }
