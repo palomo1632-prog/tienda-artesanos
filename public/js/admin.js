@@ -13,6 +13,10 @@ let fotoNueva = null; // File
 
 /* ---------- sesión ---------- */
 async function init() {
+  try { // el panel sigue el tema definido en config.json
+    const c = await (await fetch("/api/config")).json();
+    if (c.tema) $("#linkTema").href = "/css/temas/tema-" + c.tema + ".css";
+  } catch {}
   const r = await fetch("/api/admin/session");
   if (r.ok) mostrarPanel();
   else mostrarLogin();

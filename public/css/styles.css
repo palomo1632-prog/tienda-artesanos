@@ -348,6 +348,9 @@ h1,h2,h3{ font-family:"Cormorant Garamond", Georgia, serif; font-weight:600; lin
 /* ---------- Historia ---------- */
 .historia{ padding:2.8rem clamp(1.1rem, 5vw, 3rem); border-top:3px double var(--tinta); }
 .historia__texto{ max-width:640px; }
+@media (min-width:760px){
+  .historia__texto{ margin:0 auto; text-align:center; }
+}
 .historia__texto p{ margin-top:.4rem; font-size:1.04rem; }
 .historia__figura{ margin:1.6rem auto 0; max-width:900px; }
 .historia__figura img{

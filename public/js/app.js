@@ -295,7 +295,7 @@ function pintarCatalogo() {
     b.addEventListener("click", () => abrirFicha(b.dataset.ver))
   );
   $$("#grillaProductos [data-rapido]").forEach((b) =>
-    b.addEventListener("click", () => agregarRapido(b.dataset.rapido))
+    b.addEventListener("click", () => abrirFicha(b.dataset.rapido))
   );
 }
 
@@ -402,14 +402,6 @@ function agregarAlCarrito(p, formato, cantidad = 1) {
   actualizarContadores();
   avisar(`${p.titulo} agregado 🌿`);
 }
-function agregarRapido(id) {
-  const p = productos.find((x) => String(x.id) === String(id));
-  if (!p) return;
-  const formato =
-    p.tipo === "packs" && precioDe(p, "u") > 0 ? "u" : FORMATOS.find((f) => precioDe(p, f.id) > 0)?.id;
-  if (formato) agregarAlCarrito(p, formato, 1);
-}
-
 const totalCarrito = () =>
   carrito.reduce((s, l) => s + l.precio * l.cantidad, 0);
 
